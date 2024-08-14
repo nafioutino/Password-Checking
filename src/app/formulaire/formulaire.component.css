@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    width: 30rem;
+    height: 25rem;
+    border-radius: 12px;
+}
+
+.btn{
+    background-color:#6766ff ;
+    color: white;
+}
+
