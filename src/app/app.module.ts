@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { PasswordRulesComponent } from './password-rules/password-rules.component';
 import { SuccessAnimationComponent } from './success-animation/success-animation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { SuccessAnimationComponent } from './success-animation/success-animation
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
