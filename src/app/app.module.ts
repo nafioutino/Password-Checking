@@ -7,6 +7,7 @@ import { FormulaireComponent } from './formulaire/formulaire.component';
 import { PasswordRulesComponent } from './password-rules/password-rules.component';
 import { SuccessAnimationComponent } from './success-animation/success-animation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgClass
   ],
   providers: [],
   bootstrap: [AppComponent]

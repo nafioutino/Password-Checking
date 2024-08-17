@@ -16,3 +16,26 @@
     font-size: 25px;
 }
 
+.rules{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 12px;
+}
+
+
+.valid {
+    color: green;
+    font-weight: normal;
+  }
+  
+  .invalid {
+    color: red;
+    font-weight: normal;
+  }
+  
