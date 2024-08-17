@@ -1,41 +1,60 @@
-.container{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    background-color: #fff;
-    width: 30rem;
-    height: 25rem;
-    border-radius: 12px;
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  background-color: #fff;
+  width: 30rem;
+  height: 25rem;
+  border-radius: 12px;
 }
 
-.btn{
-    background-color:#6766ff ;
-    color: white;
-    font-size: 25px;
+.btn {
+  background-color: #6766ff;
+  color: white;
+  font-size: 25px;
 }
 
-.rules{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    background-color: #fff;
-    width: 20rem;
-    height: 20rem;
-    border-radius: 12px;
+.rules {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  background-color: #fff;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 12px;
 }
-
 
 .valid {
-    color: green;
-    font-weight: normal;
+  color: green;
+  font-weight: normal;
+}
+
+.invalid {
+  color: red;
+  font-weight: normal;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
   }
-  
-  .invalid {
-    color: red;
-    font-weight: normal;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
+}
+
+.success-animation {
+  animation: fadeIn 1s ease-in-out;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}

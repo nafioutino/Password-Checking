@@ -18,6 +18,7 @@ export class FormulaireComponent {
   isNumericValid = false; // Indique si le mot de passe contient un chiffre
   isSpecialCharValid = false; // Indique si le mot de passe contient un caractère spécial
   isMinLengthValid = false; // Indique si le mot de passe a la longueur minimale requise
+  showAnimation = false; // Variable pour contrôler l'animation
 
   constructor(private fb: FormBuilder) {
     // Utilisation du FormBuilder pour initialiser le formulaire avec les champs `username` et `password`
@@ -75,15 +76,22 @@ export class FormulaireComponent {
     if (this.loginForm.valid) {
       // Logique pour soumettre les données du formulaire
       console.log(this.loginForm.value);
-      if (this.loginForm.valid) {
-        // Récupère la valeur du mot de passe à partir du formulaire
-        const password = this.loginForm.get('password')?.value;
-    
-        // Enregistre le mot de passe dans le localStorage
-        localStorage.setItem('userPassword', password);
-    
-        console.log('Mot de passe enregistré dans le localStorage:', password);
-      }
+      // Récupère la valeur du mot de passe à partir du formulaire
+      const password = this.loginForm.get('password')?.value;
+
+      // Enregistre le mot de passe dans le localStorage
+      localStorage.setItem('userPassword', password);
+
+      console.log('Mot de passe enregistré dans le localStorage:', password);
+      // Déclenche l'animation
+      this.triggerAnimation();
     }
+  }
+
+  triggerAnimation() {
+    this.showAnimation = true;
+    setTimeout(() => {
+      this.showAnimation = false;
+    }, 3000); // Durée de l'animation en millisecondes
   }
 }

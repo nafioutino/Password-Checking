@@ -1,17 +1,31 @@
 <!-- Début du formulaire avec un groupe de contrôles réactifs lié à `loginForm` -->
-<form class="container card mt-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form
+  class="container card mt-3"
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+>
   <!-- Champ pour le nom d'utilisateur -->
   <div>
     <label for="username">Nom d'utilisateur</label>
     <!-- Style Bootstrap pour une meilleure apparence -->
-    <input class="form-control" id="username" formControlName="username" type="text" />
+    <input
+      class="form-control"
+      id="username"
+      formControlName="username"
+      type="text"
+    />
   </div>
 
   <!-- Champ pour le mot de passe -->
   <div>
     <label for="password">Mot de passe</label>
     <!-- Le type d'entrée est un mot de passe, cachant les caractères -->
-    <input class="form-control" id="password" formControlName="password" type="password" />
+    <input
+      class="form-control"
+      id="password"
+      formControlName="password"
+      type="password"
+    />
   </div>
 
   <!-- Bouton de soumission, désactivé tant que le formulaire est invalide -->
@@ -48,23 +62,56 @@
   </button>
 </form>
 
+<!-- Section pour l'animation -->
+<div *ngIf="showAnimation" class="success-animation">
+  Félicitations ! Votre mot de passe a été enregistré.
+</div>
+
 <!-- Affichage des règles si le mot de passe est invalide -->
-<div class="container rules card mt-3" *ngIf="loginForm.get('password')?.errors?.['passwordInvalid']">
+<div
+  class="container rules card mt-3"
+  *ngIf="loginForm.get('password')?.errors?.['passwordInvalid']"
+>
   <strong> Le mot de passe doit contenir :</strong>
   <!-- Liste des règles de validation du mot de passe avec des icônes dynamiques -->
-  <small [ngClass]="{ 'valid bi bi-check': isLowerCaseValid, 'invalid bi bi-x': !isLowerCaseValid }">
+  <small
+    [ngClass]="{
+      'valid bi bi-check': isLowerCaseValid,
+      'invalid bi bi-x': !isLowerCaseValid
+    }"
+  >
     Au moins une lettre minuscule
   </small>
-  <small [ngClass]="{ 'valid bi bi-check': isUpperCaseValid, 'invalid bi bi-x': !isUpperCaseValid }">
+  <small
+    [ngClass]="{
+      'valid bi bi-check': isUpperCaseValid,
+      'invalid bi bi-x': !isUpperCaseValid
+    }"
+  >
     Au moins une lettre majuscule
   </small>
-  <small [ngClass]="{ 'valid bi bi-check': isNumericValid, 'invalid bi bi-x': !isNumericValid }">
+  <small
+    [ngClass]="{
+      'valid bi bi-check': isNumericValid,
+      'invalid bi bi-x': !isNumericValid
+    }"
+  >
     Au moins un chiffre (0-9)
   </small>
-  <small [ngClass]="{ 'valid bi bi-check': isSpecialCharValid, 'invalid bi bi-x': !isSpecialCharValid }">
+  <small
+    [ngClass]="{
+      'valid bi bi-check': isSpecialCharValid,
+      'invalid bi bi-x': !isSpecialCharValid
+    }"
+  >
     Au moins un caractère spécial
   </small>
-  <small [ngClass]="{ 'valid bi bi-check': isMinLengthValid, 'invalid bi bi-x': !isMinLengthValid }">
+  <small
+    [ngClass]="{
+      'valid bi bi-check': isMinLengthValid,
+      'invalid bi bi-x': !isMinLengthValid
+    }"
+  >
     Un minimum de 8 caractères
   </small>
 </div>
