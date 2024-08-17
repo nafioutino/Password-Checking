@@ -1,35 +1,23 @@
 <!-- Début du formulaire avec un groupe de contrôles réactifs lié à `loginForm` -->
-<form
-  class="container card mt-3"
-  [formGroup]="loginForm"
-  (ngSubmit)="onSubmit()"
->
+<form class="container card mt-3 p-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <img [src]="image" class="image"  alt="userImage" srcset="">
+
   <!-- Champ pour le nom d'utilisateur -->
-  <div>
-    <label for="username">Nom d'utilisateur</label>
+  <div class="mb-3">
+    <label for="username" class="form-label">Nom d'utilisateur</label>
     <!-- Style Bootstrap pour une meilleure apparence -->
-    <input
-      class="form-control"
-      id="username"
-      formControlName="username"
-      type="text"
-    />
+    <input class="form-control" id="username" formControlName="username" type="text" />
   </div>
 
   <!-- Champ pour le mot de passe -->
-  <div>
-    <label for="password">Mot de passe</label>
+  <div class="mb-3">
+    <label for="password" class="form-label">Mot de passe</label>
     <!-- Le type d'entrée est un mot de passe, cachant les caractères -->
-    <input
-      class="form-control"
-      id="password"
-      formControlName="password"
-      type="password"
-    />
+    <input class="form-control" id="password" formControlName="password" type="password" />
   </div>
 
   <!-- Bouton de soumission, désactivé tant que le formulaire est invalide -->
-  <button class="btn" type="submit" [disabled]="!loginForm.valid">
+  <button class="btn btn-primary w-100" type="submit" [disabled]="!loginForm.valid">
     Connexion
     <!-- Icône de cadenas fermée si le formulaire n'est pas valide -->
     <svg
@@ -38,7 +26,7 @@
       width="30"
       height="30"
       fill="currentColor"
-      class="bi bi-lock-fill"
+      class="bi bi-lock-fill ms-2"
       viewBox="0 0 16 16"
     >
       <path
@@ -52,7 +40,7 @@
       width="30"
       height="30"
       fill="currentColor"
-      class="bi bi-unlock-fill"
+      class="bi bi-unlock-fill ms-2"
       viewBox="0 0 16 16"
     >
       <path
@@ -63,55 +51,27 @@
 </form>
 
 <!-- Section pour l'animation -->
-<div *ngIf="showAnimation" class="success-animation">
+<div *ngIf="showAnimation" class="alert alert-success text-center mt-3 success-animation">
   Félicitations ! Votre mot de passe a été enregistré.
 </div>
 
 <!-- Affichage des règles si le mot de passe est invalide -->
-<div
-  class="container rules card mt-3"
-  *ngIf="loginForm.get('password')?.errors?.['passwordInvalid']"
->
+<div class="container card mt-3 p-3 rules" *ngIf="loginForm.get('password')?.errors?.['passwordInvalid']">
   <strong> Le mot de passe doit contenir :</strong>
   <!-- Liste des règles de validation du mot de passe avec des icônes dynamiques -->
-  <small
-    [ngClass]="{
-      'valid bi bi-check': isLowerCaseValid,
-      'invalid bi bi-x': !isLowerCaseValid
-    }"
-  >
-    Au moins une lettre minuscule
+  <small [ngClass]="{ 'valid bi bi-check': isLowerCaseValid, 'invalid bi bi-x': !isLowerCaseValid }" class="d-flex align-items-center">
+    <span class="me-2">Au moins une lettre minuscule</span>
   </small>
-  <small
-    [ngClass]="{
-      'valid bi bi-check': isUpperCaseValid,
-      'invalid bi bi-x': !isUpperCaseValid
-    }"
-  >
-    Au moins une lettre majuscule
+  <small [ngClass]="{ 'valid bi bi-check': isUpperCaseValid, 'invalid bi bi-x': !isUpperCaseValid }" class="d-flex align-items-center">
+    <span class="me-2">Au moins une lettre majuscule</span>
   </small>
-  <small
-    [ngClass]="{
-      'valid bi bi-check': isNumericValid,
-      'invalid bi bi-x': !isNumericValid
-    }"
-  >
-    Au moins un chiffre (0-9)
+  <small [ngClass]="{ 'valid bi bi-check': isNumericValid, 'invalid bi bi-x': !isNumericValid }" class="d-flex align-items-center">
+    <span class="me-2">Au moins un chiffre (0-9)</span>
   </small>
-  <small
-    [ngClass]="{
-      'valid bi bi-check': isSpecialCharValid,
-      'invalid bi bi-x': !isSpecialCharValid
-    }"
-  >
-    Au moins un caractère spécial
+  <small [ngClass]="{ 'valid bi bi-check': isSpecialCharValid, 'invalid bi bi-x': !isSpecialCharValid }" class="d-flex align-items-center">
+    <span class="me-2">Au moins un caractère spécial</span>
   </small>
-  <small
-    [ngClass]="{
-      'valid bi bi-check': isMinLengthValid,
-      'invalid bi bi-x': !isMinLengthValid
-    }"
-  >
-    Un minimum de 8 caractères
+  <small [ngClass]="{ 'valid bi bi-check': isMinLengthValid, 'invalid bi bi-x': !isMinLengthValid }" class="d-flex align-items-center">
+    <span class="me-2">Un minimum de 8 caractères</span>
   </small>
 </div>

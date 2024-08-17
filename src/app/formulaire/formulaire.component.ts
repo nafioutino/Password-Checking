@@ -19,6 +19,7 @@ export class FormulaireComponent {
   isSpecialCharValid = false; // Indique si le mot de passe contient un caractère spécial
   isMinLengthValid = false; // Indique si le mot de passe a la longueur minimale requise
   showAnimation = false; // Variable pour contrôler l'animation
+  image:string = "assets/user.png"
 
   constructor(private fb: FormBuilder) {
     // Utilisation du FormBuilder pour initialiser le formulaire avec les champs `username` et `password`

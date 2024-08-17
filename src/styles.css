@@ -1,9 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    background-color: #6766ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    height: 100vh;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #091a40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  font-family: "Poppins", sans-serif;
 }
