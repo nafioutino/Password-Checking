@@ -1,19 +1,19 @@
 <!-- Début du formulaire avec un groupe de contrôles réactifs lié à `loginForm` -->
 <form class="container card mt-3 p-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <img [src]="image" class="image"  alt="userImage" srcset="">
-
+ 
   <!-- Champ pour le nom d'utilisateur -->
   <div class="mb-3">
     <label for="username" class="form-label">Nom d'utilisateur</label>
     <!-- Style Bootstrap pour une meilleure apparence -->
-    <input class="form-control" id="username" formControlName="username" type="text" />
+    <input class="form-control" id="username" formControlName="username" type="text" placeholder="username" />
   </div>
 
   <!-- Champ pour le mot de passe -->
   <div class="mb-3">
     <label for="password" class="form-label">Mot de passe</label>
     <!-- Le type d'entrée est un mot de passe, cachant les caractères -->
-    <input class="form-control" id="password" formControlName="password" type="password" />
+    <input class="form-control" id="password" formControlName="password" type="password" placeholder="password" />
   </div>
 
   <!-- Bouton de soumission, désactivé tant que le formulaire est invalide -->
