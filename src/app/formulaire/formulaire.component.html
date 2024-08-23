@@ -1,7 +1,8 @@
 <!-- Début du formulaire avec un groupe de contrôles réactifs lié à `loginForm` -->
 <form class="container card mt-3 p-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <img [src]="image" class="image"  alt="userImage" srcset="">
- 
+  <h1>Connectez-vous</h1>
+  <!-- <img [src]="image" class="image"  alt="userImage" srcset=""> -->
+
   <!-- Champ pour le nom d'utilisateur -->
   <div class="mb-3">
     <label for="username" class="form-label">Nom d'utilisateur</label>
@@ -20,32 +21,16 @@
   <button class="btn btn-primary w-100" type="submit" [disabled]="!loginForm.valid">
     Connexion
     <!-- Icône de cadenas fermée si le formulaire n'est pas valide -->
-    <svg
-      *ngIf="!loginForm.valid"
-      xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30"
-      fill="currentColor"
-      class="bi bi-lock-fill ms-2"
-      viewBox="0 0 16 16"
-    >
+    <svg *ngIf="!loginForm.valid" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+      class="bi bi-lock-fill ms-2" viewBox="0 0 16 16">
       <path
-        d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"
-      />
+        d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
     </svg>
     <!-- Icône de cadenas ouverte si le formulaire est valide -->
-    <svg
-      *ngIf="loginForm.valid"
-      xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30"
-      fill="currentColor"
-      class="bi bi-unlock-fill ms-2"
-      viewBox="0 0 16 16"
-    >
+    <svg *ngIf="loginForm.valid" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+      class="bi bi-unlock-fill ms-2" viewBox="0 0 16 16">
       <path
-        d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2"
-      />
+        d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2" />
     </svg>
   </button>
 </form>
@@ -59,19 +44,24 @@
 <div class="container card mt-3 p-3 rules" *ngIf="loginForm.get('password')?.errors?.['passwordInvalid']">
   <strong> Le mot de passe doit contenir :</strong>
   <!-- Liste des règles de validation du mot de passe avec des icônes dynamiques -->
-  <small [ngClass]="{ 'valid bi bi-check': isLowerCaseValid, 'invalid bi bi-x': !isLowerCaseValid }" class="d-flex align-items-center">
+  <small [ngClass]="{ 'valid bi bi-check': isLowerCaseValid, 'invalid bi bi-x': !isLowerCaseValid }"
+    class="d-flex align-items-center">
     <span class="me-2">Au moins une lettre minuscule</span>
   </small>
-  <small [ngClass]="{ 'valid bi bi-check': isUpperCaseValid, 'invalid bi bi-x': !isUpperCaseValid }" class="d-flex align-items-center">
+  <small [ngClass]="{ 'valid bi bi-check': isUpperCaseValid, 'invalid bi bi-x': !isUpperCaseValid }"
+    class="d-flex align-items-center">
     <span class="me-2">Au moins une lettre majuscule</span>
   </small>
-  <small [ngClass]="{ 'valid bi bi-check': isNumericValid, 'invalid bi bi-x': !isNumericValid }" class="d-flex align-items-center">
+  <small [ngClass]="{ 'valid bi bi-check': isNumericValid, 'invalid bi bi-x': !isNumericValid }"
+    class="d-flex align-items-center">
     <span class="me-2">Au moins un chiffre (0-9)</span>
   </small>
-  <small [ngClass]="{ 'valid bi bi-check': isSpecialCharValid, 'invalid bi bi-x': !isSpecialCharValid }" class="d-flex align-items-center">
+  <small [ngClass]="{ 'valid bi bi-check': isSpecialCharValid, 'invalid bi bi-x': !isSpecialCharValid }"
+    class="d-flex align-items-center">
     <span class="me-2">Au moins un caractère spécial</span>
   </small>
-  <small [ngClass]="{ 'valid bi bi-check': isMinLengthValid, 'invalid bi bi-x': !isMinLengthValid }" class="d-flex align-items-center">
+  <small [ngClass]="{ 'valid bi bi-check': isMinLengthValid, 'invalid bi bi-x': !isMinLengthValid }"
+    class="d-flex align-items-center">
     <span class="me-2">Un minimum de 8 caractères</span>
   </small>
 </div>
